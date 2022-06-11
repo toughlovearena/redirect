@@ -1,3 +1,4 @@
+import { Updater } from '@toughlovearena/updater';
 import express, { json } from 'express';
 import { Redirect } from './redirect';
 import { getUrl } from './util';
@@ -5,11 +6,15 @@ import { getUrl } from './util';
 export class Server {
   private readonly redirect = new Redirect();
   private readonly app = express();
-  constructor() {
+  constructor(updater: Updater) {
     this.app.use(json());
-  
-    this.app.get('/health', (req, res) => {
+
+    this.app.get('/health', async (req, res) => {
+      const gitHash = await updater.gitter.hash();
       res.send({
+        gitHash,
+        started: new Date(updater.startedAt),
+        testVer: 0,
         redirects: this.redirect.replace,
       });
     });
