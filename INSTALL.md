@@ -32,7 +32,10 @@ sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
 # make sure the web server is off, you need port 80 for this
-sudo certbot certonly -d champions.toughlovearena.com -d events.toughlovearena.com
+sudo certbot certonly \
+  -d redirect.toughlovearena.com \
+  -d champions.toughlovearena.com \
+  -d events.toughlovearena.com
 
 # to renew
 sudo certbot renew --dry-run

@@ -40,8 +40,8 @@ export class Server {
       });
     } else {
       const credentials = {
-        key: fs.readFileSync('/etc/letsencrypt/live/champions.toughlovearena.com/privkey.pem', 'utf8'),
-        cert: fs.readFileSync('/etc/letsencrypt/live/champions.toughlovearena.com/fullchain.pem', 'utf8'),
+        key: fs.readFileSync('/etc/letsencrypt/live/redirect.toughlovearena.com/privkey.pem', 'utf8'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/redirect.toughlovearena.com/fullchain.pem', 'utf8'),
       };
       http.createServer(this.app).listen(80, () => {
         console.log(`Listening on port 80`);
