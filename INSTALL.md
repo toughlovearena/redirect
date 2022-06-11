@@ -4,8 +4,25 @@ how to setup server
 
 NOTE: redirect runs directly on PORT 80 to dynamically handle many domains
 
-### setup certbot
+### setup server
 
+```bash
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source .bashrc
+
+git clone https://github.com/toughlovearena/redirect.git
+cd redirect
+
+nvm install $(cat .nvmrc)
+nvm use
+npm i
+
+npm run bg
+
+```
+
+### setup certbot
 
 ```bash
 
