@@ -1,6 +1,7 @@
 import fs from 'fs';
 import http from 'http';
 import https from 'https';
+import cors from 'cors';
 import { Updater } from '@toughlovearena/updater';
 import express, { json } from 'express';
 import { Redirect } from './redirect';
@@ -10,6 +11,7 @@ export class Server {
   private readonly redirect = new Redirect();
   private readonly app = express();
   constructor(updater: Updater) {
+    this.app.use(cors());
     this.app.use(json());
 
     this.app.get('/health', async (req, res) => {
@@ -39,6 +41,10 @@ export class Server {
         console.log(`Listening on port ${port}`);
       });
     } else {
+      // redirect http > https
+      this.app.use((req, res, next) => {
+        req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
+      });
       const credentials = {
         key: fs.readFileSync('/etc/letsencrypt/live/redirect.toughlovearena.com/privkey.pem', 'utf8'),
         cert: fs.readFileSync('/etc/letsencrypt/live/redirect.toughlovearena.com/fullchain.pem', 'utf8'),
