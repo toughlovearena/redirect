@@ -1,5 +1,5 @@
 import { Server } from "./server";
 
-// const port = 80;
-const port = 4000;
+const envPort = Number(process.env.PORT);
+const port = !isNaN(envPort) ? envPort : 80;
 new Server().listen(port);
