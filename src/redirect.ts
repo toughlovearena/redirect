@@ -4,12 +4,17 @@ interface Swap {
 }
 
 export class Redirect {
-  // todo
   readonly replace: Swap[] = [{
-    from: 'http://localhost:4000/events', 
+    from: 'https://champions.toughlovearena.com',
+    to: 'https://about.toughlovearena.com/fame',
+  }, {
+    from: 'https://events.toughlovearena.com',
     to: 'https://about.toughlovearena.com/events',
   }, {
-    from: 'http://localhost:4000/log?v=', 
+    from: 'http://localhost:4000/events',
+    to: 'https://about.toughlovearena.com/events',
+  }, {
+    from: 'http://localhost:4000/log?v=',
     to: 'https://about.toughlovearena.com/log#',
   }];
 
