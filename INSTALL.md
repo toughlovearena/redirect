@@ -41,3 +41,21 @@ sudo certbot certonly \
 sudo certbot renew --dry-run
 
 ```
+
+### renew certificates
+
+```bash
+
+# free up port 80
+npm run kill
+
+# renew
+sudo certbot certonly \
+  -d redirect.toughlovearena.com \
+  -d champions.toughlovearena.com \
+  -d events.toughlovearena.com
+
+# restart server
+npm run bg
+
+```
