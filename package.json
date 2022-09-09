@@ -8,7 +8,6 @@
     "node": ">=16.15.1"
   },
   "scripts": {
-    "certbot": "certbot certonly -d redirect.toughlovearena.com -d champions.toughlovearena.com -d events.toughlovearena.com",
     "clean": "rimraf dist/*",
     "tsc": "tsc",
     "build": "npm-run-all clean tsc",
