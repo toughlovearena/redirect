@@ -8,6 +8,7 @@
     "node": ">=16.15.1"
   },
   "scripts": {
+    "certbot": "certbot renew",
     "clean": "rimraf dist/*",
     "tsc": "tsc",
     "build": "npm-run-all clean tsc",
