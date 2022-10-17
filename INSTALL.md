@@ -42,7 +42,7 @@ sudo certbot renew --dry-run
 
 ```
 
-### renew certificates
+### manually renew certificates
 
 ```bash
 
@@ -50,10 +50,7 @@ sudo certbot renew --dry-run
 npm run kill
 
 # renew
-sudo certbot certonly \
-  -d redirect.toughlovearena.com \
-  -d champions.toughlovearena.com \
-  -d events.toughlovearena.com
+sudo certbot renew --force-renewal
 
 # restart server
 npm run bg
