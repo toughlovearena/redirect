@@ -44,15 +44,4 @@ sudo certbot renew --dry-run
 
 ### manually renew certificates
 
-```bash
-
-# free up port 80
-npm run kill
-
-# renew
-sudo certbot renew --force-renewal
-
-# restart server
-npm run bg
-
-```
+See [bash/renew.sh](bash/renew.sh)
