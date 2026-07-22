@@ -7,6 +7,8 @@ NOTE: redirect runs directly on PORT 80 to dynamically handle many domains
 ### manually renew certificates
 
 ```bash
+# configure node
+nvm use
 
 # free up port 80
 npm run kill
