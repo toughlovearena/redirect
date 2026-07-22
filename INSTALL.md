@@ -4,6 +4,21 @@ how to setup server
 
 NOTE: redirect runs directly on PORT 80 to dynamically handle many domains
 
+### manually renew certificates
+
+```bash
+
+# free up port 80
+npm run kill
+
+# renew
+sudo certbot renew --force-renewal
+
+# restart server
+npm run bg
+
+```
+
 ### setup server
 
 ```bash
@@ -39,20 +54,5 @@ sudo certbot certonly \
 
 # to renew
 sudo certbot renew --dry-run
-
-```
-
-### manually renew certificates
-
-```bash
-
-# free up port 80
-npm run kill
-
-# renew
-sudo certbot renew --force-renewal
-
-# restart server
-npm run bg
 
 ```
